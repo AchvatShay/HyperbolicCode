@@ -1,0 +1,29 @@
+general:
+  name:  'SM04_8_18_19_Activity'
+  gpu: -1  # <-g,--gpu:int> GPU ID (negative value indicates CPU)
+  test: false  # set tiny datasets for quick tests
+  num_experiments: 5
+  noplot: false
+  outputpath: 'E:\Dropbox (Technion Dropbox)\Yara\Layer 5_Analysis\Yara''s Data For Shay\SM04\08_18_19_tuft_Final_Version\Analysis\N1\StructuralTreeHyperbolic'
+dataset:
+  type: mnist  # <--dataset:['synthetic', 'mnist', 'cifar100']>
+  mnistShape: 784
+  matrixFile_struct : 'E:\Dropbox (Technion Dropbox)\Yara\Layer 5_Analysis\Yara''s Data For Shay\SM04\08_18_19_tuft_Final_Version\Analysis\N1\Structural_VS_Functional\cluster4pks10_loranzStructuralDist\GraphAsMatrix.mat'
+  matrixFile_activity : 'E:\Dropbox (Technion Dropbox)\Yara\Layer 5_Analysis\Yara''s Data For Shay\SM04\08_18_19_tuft_Final_Version\Analysis\N1\Structural_VS_Functional\cluster4pks10_loranzStructuralDist\roiActivityRawData.mat'
+loss:
+  beta: 1.0
+  k: 1
+training:
+  iteration: 150000  # number of iterations to learn
+  batch_size: 100
+  early_stopping: false
+  warm_up: -1  # number of iterations for warm-up penalty term
+optimizer:
+  type: adam  # <--optimizer:['adam', 'msgd', 'adagrad']> optimizer type
+  lr: 1e-6  # learning rate
+model:
+  p_x: normal  # <:['normal', 'bernoulli']>
+  p_z: nagano  # <:['euclid', 'nagano', 'nagano-unit']>
+  type: mlp  # <--model-type:['mlp', 'cnn']> model type
+  n_hidden: 500
+  n_latent: 3
